@@ -20,17 +20,43 @@
             <div class="btn btn-warning heading">
               <img src="/background1.jpg" alt="">
               <h1>Ping Pong</h1>
+              <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModel">
+                Instruction |  How to Play?
+              </button>
+      
             </div>
             <img src="/mario.jpg"class="big-image"  alt="">
             <br><br>
             <button type="button" class="btn btn-info" id="btn">Play the Game</button>
             <br><br>
             <h3 class="btn btn-danger">Staus: <label for="" id="status"></label></h3><br><br><br>
-            <div class="control-centre">
+            <div id="control-centre">
             </div>
             <div class="footer">
               <h5>Copy Right <span>&#8471; </span></h5>
             </div>
+            <div class="modal fade" id="myModel">
+              <div class="modal-dialog" >
+                <div class="modal-content">
+                  <div class="modal-header">
+                     <h4>How to Play?</h4>
+                  </div>
+                  <div class="modal-body"> 
+<ol>
+  <li> keep your laptop screen straight</li>
+<li> yourself approximately 3-4 feet away from the laptop</li>
+<li>Move your right wrist in an ascending and decending manner, a red dot should appear on your right wrist</li>
+<li>Now press the play button, and again move yourself 3-4 feet away from laptop</li>
+<li>The red paddel is your paddel, that will move as per the movement of your right wrist</li>
+</ol>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="closeMe" type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close"">Got It!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </center>
         <script src="main.js"></script>
     </body>
 </html>
