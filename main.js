@@ -1,6 +1,12 @@
 
 /*created by prashant shukla */
 
+/*Variables Created By Me */
+var rX = 0;
+var rY = 0;
+
+var setscoreright = 0;
+
 var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
@@ -31,17 +37,38 @@ function setup(){
   video.center();
   
   poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
 }
+
 
 function modelLoaded()
 {
   console.log("Model is Loaded");
 }
 
-function draw(){
+function gotPoses(results)
+{
+  if(results.length > 0)
+  {
+  setscoreright = results[0].pose.keypoints[10].score;
+  console.log(results);
+  rX = results[0].pose.rightWrist.x;
+  rY = results[0].pose.rightWrist.y;
+  // console.log("noseX = " + noseX +", noseY = " + noseY);
+}
+}
 
+
+function draw(){
  background(0); 
  image(video,50, 0, 500,600);
+
+ if(  setscoreright > 0.2)
+ {
+ fill('red');
+ stroke('red');
+ circle(rX,rY,5)
+ }
  fill("black");
  stroke("black");
  rect(680,0,20,700);
@@ -87,7 +114,6 @@ function reset(){
    ball.y = height/2+100;
    ball.dx=3;
    ball.dy =3;
-   
 }
 
 
